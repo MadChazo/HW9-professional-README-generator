@@ -1,7 +1,77 @@
 // TODO: Include packages needed for this application
-
+const fs = require("fs");
+const inquirer = require("inquirer");
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+  {
+    type: "input",
+    message: "Enter the title of your project.",
+    name: "title",
+    default: "Untitled Project",
+  },
+  {
+    type: "input",
+    message: "Enter a description of your project.",
+    name: "description",
+    default: "",
+  },
+  {
+    type: "input",
+    message: "Enter any installation instructions for your application.",
+    name: "installation",
+    default: "N/A",
+  },
+  {
+    type: "input",
+    message: "Enter usage instructions for your application.",
+    name: "usage",
+    default: "",
+  },
+  {
+    type: "input",
+    message: "Enter any contribution guidelines for your project.",
+    name: "contributing",
+    default: "N/A",
+  },
+  {
+    type: "input",
+    message: "Enter any test instructions for your application.",
+    name: "tests",
+    default: "N/A",
+  },
+  {
+    type: "list",
+    message:
+      "Which license is your project covered under?\n If you are unsure, check out https://choosealicense.com for some guidelines.\n If you don't see your license here, choose Other, and make sure to edit your generated README to contain your license information.",
+    choices: [
+      "Apache License 2.0",
+      "Boost Software License 1.0",
+      "GNU AGPLv3",
+      "GNU GPLv3",
+      "GNU LGPLv3",
+      "MIT License",
+      "Mozilla Public License 2.0",
+      "The Unlicense",
+      "Other",
+    ],
+    name: "license",
+    default: "Other",
+  },
+  {
+    type: "input",
+    message:
+      "Enter your GitHub username.\n (This will be used to link to your GitHub profile.)",
+    name: "username",
+    default: "N/A",
+  },
+  {
+    type: "input",
+    message:
+      "Enter your email address.\n (This will be used for receiving questions about your project.)",
+    name: "email",
+    default: "N/A",
+  },
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
