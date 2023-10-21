@@ -1,9 +1,29 @@
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// Return license link
 function renderLicenseLink(license) {
   switch (license) {
     case "Apache License 2.0":
       var licenseLink = "http://www.apache.org/licenses/LICENSE-2.0";
+      break;
+    case "Boost Software License 1.0":
+      var licenseLink = "https://www.boost.org/users/license.html";
+      break;
+    case "GNU AGPLv3":
+      var licenseLink = "https://www.gnu.org/licenses/agpl-3.0.en.html";
+      break;
+    case "GNU GPLv3":
+      var licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
+      break;
+    case "GNU LGPLv3":
+      var licenseLink = "https://www.gnu.org/licenses/lgpl-3.0.en.html";
+      break;
+    case "MIT License":
+      var licenseLink = "https://choosealicense.com/licenses/mit/";
+      break;
+    case "Mozilla Public License 2.0":
+      var licenseLink = "https://www.mozilla.org/en-US/MPL/";
+      break;
+    case "The Unlicense":
+      var licenseLink = "https://choosealicense.com/licenses/unlicense/";
       break;
     default:
       return;
@@ -11,8 +31,8 @@ function renderLicenseLink(license) {
   return licenseLink;
 }
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Return markdown syntax for license badge
+// If no license specified, return empty string
 function renderLicenseBadge(license) {
   switch (license) {
     case "Apache License 2.0":
@@ -25,18 +45,59 @@ function renderLicenseBadge(license) {
         license
       )})`;
       break;
+    case "GNU AGPLv3":
+      var licenseBadge = `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](${renderLicenseLink(
+        license
+      )})
+        `;
+      break;
+    case "GNU GPLv3":
+      var licenseBadge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](${renderLicenseLink(
+        license
+      )})`;
+      break;
+    case "GNU LGPLv3":
+      var licenseBadge = `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](${renderLicenseLink(
+        license
+      )})`;
+      break;
+    case "MIT License":
+      var licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](${renderLicenseLink(
+        license
+      )})`;
+      break;
+    case "Mozilla Public License 2.0":
+      var licenseBadge = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](${renderLicenseLink(
+        license
+      )})`;
+      break;
+    case "The Unlicense":
+      var licenseBadge = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](${renderLicenseLink(
+        license
+      )})`;
+      break;
     default:
       return "";
   }
   return licenseBadge;
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Create License section of README
 function renderLicenseSection(license) {
   switch (license) {
     case "Apache License 2.0":
-      var licenseText = `The license used for this project is the Apache License 2.0. For more information about this license, visit ${renderLicenseLink(
+    case "Boost Software License 1.0":
+    case "GNU AGPLv3":
+    case "GNU GPLv3":
+    case "GNU LGPLv3":
+    case "MIT License":
+    case "Mozilla Public License 2.0":
+      var licenseText = `The license used for this project is the ${license}. For more information about this license, visit ${renderLicenseLink(
+        license
+      )}.`;
+      break;
+    case "The Unlicense":
+      var licenseText = `The license used for this project is the Unlicense. For more information about this license, visit ${renderLicenseLink(
         license
       )}.`;
       break;
@@ -46,7 +107,22 @@ function renderLicenseSection(license) {
   return licenseText;
 }
 
-// TODO: Create a function to generate markdown for README
+// Create Questions section of README
+function renderQuestionSection(data) {
+  let questionSection = "";
+  if (data.username != "N/A") {
+    questionSection += `Find me on GitHub: [${data.username}](https://github.com/${data.username})`;
+  }
+  if (data.username != "N/A" && data.email != "N/A") {
+    questionSection += "\n\n";
+  }
+  if (data.email != "N/A") {
+    questionSection += `Please reach out to me at ${data.email} with any additional questions.`;
+  }
+  return questionSection;
+}
+
+// Generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title} ${renderLicenseBadge(data.license)}
 
@@ -86,9 +162,7 @@ ${data.tests}
 
 ## Questions
 
-Find me on GitHub: [${data.username}](https://github.com/${data.username})
-
-Please reach out to me at ${data.email} with any additional questions.`;
+${renderQuestionSection(data)}`;
 }
 
 module.exports = generateMarkdown;
