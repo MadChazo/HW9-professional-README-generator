@@ -88,9 +88,8 @@ function init() {
     .prompt(questions)
     .then((answers) => {
       var mdText = generateMarkdown(answers);
-      console.log(mdText);
-      return answers;
-    }).then(writeToFile("myREADME.md", data));
+      writeToFile("myREADME.md", mdText);
+    });
 }
 
 // Function call to initialize app

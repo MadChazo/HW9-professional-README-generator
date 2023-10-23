@@ -92,12 +92,12 @@ function renderLicenseSection(license) {
     case "GNU LGPLv3":
     case "MIT License":
     case "Mozilla Public License 2.0":
-      var licenseText = `The license used for this project is the ${license}. For more information about this license, visit ${renderLicenseLink(
+      var licenseText = `The license that applies to this project is the ${license}. For more information about this license, visit ${renderLicenseLink(
         license
       )}.`;
       break;
     case "The Unlicense":
-      var licenseText = `The license used for this project is the Unlicense. For more information about this license, visit ${renderLicenseLink(
+      var licenseText = `The license that applies to this project is the Unlicense. For more information about this license, visit ${renderLicenseLink(
         license
       )}.`;
       break;
