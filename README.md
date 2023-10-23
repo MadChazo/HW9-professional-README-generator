@@ -20,7 +20,7 @@ IDK
 
 ## Usage
 
-To invoke the application, make sure you are in the directory containing the index.js file in your CLI, then use the command `node index.js`. You will be prompted to enter information that you want to include in your README, section by section. I recommend typing out some of the longer responses, such as your project description or user instructions, in a text editor first and copy-pasting it into the command line. I will provide below a list of prompts so that you can write your responses out ahead of time if you wish. 
+Before use, make sure to run the `npm install` command to install the required npm package for this application. To invoke the application, make sure you are in the directory containing the index.js file in your CLI, then use the command `node index.js`. You will be prompted to enter information that you want to include in your README, section by section. I recommend typing out some of the longer responses, such as your project description or user instructions, in a text editor first and copy-pasting it into the command line. I will provide below a list of prompts so that you can write your responses out ahead of time if you wish. See sampleREADME.md for an idea of how the finished product will look.
 
 • Enter the title of your project.  
 • Enter a description of your project.  
@@ -32,7 +32,7 @@ To invoke the application, make sure you are in the directory containing the ind
 • Enter your GitHub username. (This will be used to link to your GitHub profile, so it is case-sensitive.)  
 • Enter your email address. (This will be used for receiving questions about your project.)  
 
-The README that is generated from your input will be named myREADME.md so as not to accidentally replace this README in the project files. You are welcome to rename the file and make any other edits you see fit to make when you move it to your project.
+If everything has worked correctly, you should see a notice in the terminal that myREADME has been created. The README that is generated from your input will be named myREADME.md so as not to accidentally replace this README in the project files. The file will be located in the same directory as the index.js file for this application. You are welcome to rename the file and make any other edits you see fit to make when you move it to your project. If you don't move the file out of the directory it is generated in, the next README you generate will overwrite that file.
 
 ## License
 
